@@ -19,3 +19,15 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+/tmp/cache/*.cache
+/vendor/*
+
+*.cache
+*.log
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+log/development.log
