@@ -4,6 +4,12 @@ body {
   color: #262626;
 }
 
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 77px;
+}
+
 .core-sprite {
   background-image: image-url("core-sprite-2x.png");
   background-size: 405px 379px;
