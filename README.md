@@ -1,24 +1,82 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Instagram copy-site
 
 * Ruby version
+  Ruby 2.3.1
 
-* System dependencies
+* Rails version
+  Rails 5.0.7
 
-* Configuration
+* DataBase Design
+---
 
-* Database creation
+## Bookmark
+### table
+|Column|Type|Options|
+|-|-|-|
+|user_id|integer|null: false, foreign_key: true|
+|post_id|integer|null: false, foreign_key: true|
 
-* Database initialization
+### association
+- belongs_to :post
+- belongs_to :user
 
-* How to run the test suite
+---
+## Comment
+### table
+|Column|Type|Options|
+|-|-|-|
+|user_id|integer|null: false, foreign_key: true|
+|post_id|integer|null: false, foreign_key: true|
+|content|string|null: false|
+### association
+- belongs_to :post
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+---
+## Like
+### table
+|Column|Type|Options|
+|-|-|-|
+|user_id|integer|null: false, foreign_key: true|
+|post_id|integer|null: false, foreign_key: true|
+### association
+- belongs_to :post
+- belongs_to :user
 
-* Deployment instructions
+---
+## Photo
+### table
+|Column|Type|Options|
+|-|-|-|
+|image|string|null: false|
+|post_id|integer|null: false, foreign_key: true|
+### association
+- belongs_to :post
 
-* ...
+---
+## Post
+### table
+|Column|Type|Options|
+|-|-|-|
+|name|string|null: false|
+### association
+- has_many :bookmarks
+- has_many :comments
+- has_many :likes
+- has_many :photos
+- belongs_to :user
+
+---
+## User
+### table
+|Column|Type|Options|
+|-|-|-|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+### association
+- has_many :bookmarks
+- has_many :comments
+- has_many :likes
+- has_many :posts
