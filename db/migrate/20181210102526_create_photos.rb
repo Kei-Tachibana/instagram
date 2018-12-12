@@ -2,7 +2,7 @@ class CreatePhotos < ActiveRecord::Migration[5.0]
   def change
     create_table :photos do |t|
       t.string :image
-      t.reference :post
+      t.references :post
 
       t.timestamps
     end
