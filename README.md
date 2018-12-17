@@ -75,6 +75,7 @@ Instagram copy-site
 |name|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
+|image|string||
 ### association
 - has_many :bookmarks
 - has_many :comments
