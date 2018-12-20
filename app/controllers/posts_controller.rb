@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show]
 
   def index
-    @posts = Post.all.limit(10).includes(:photos)
+    @posts = Post.all.limit(10).includes(:photos, :user).order('created_at DESC')
     @post = Post.new
   end
 
@@ -14,16 +14,13 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-
       if params[:image]
         params[:image].each do |img|
-          post.photos.create(image: img)
+          post.photos.create(image: params[:images][img])
         end
       end
-
       redirect_to posts_path
       flash[:notice] = "Saved ..."
-
     else
       flash[:alert] = "Something went wrong ..."
       redirect_to posts_path
