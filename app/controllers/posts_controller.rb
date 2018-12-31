@@ -3,19 +3,21 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy]
 
   def index
-    @posts = Post.all.limit(10).includes(:photos, :user).order('created_at DESC')
+    @posts = Post.all.limit(10).includes(:photos, :user, :likes).order('created_at DESC')
     @post = Post.new
   end
 
   def show
     @photos = @post.photos
+    @likes = @post.likes.includes(:user)
+    @is_liked = @post.is_liked(current_user)
   end
 
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      if params[:image]
-        params[:image].each do |img|
+      if params[:images]
+        params[:images].each do |img|
           post.photos.create(image: params[:images][img])
         end
       end
