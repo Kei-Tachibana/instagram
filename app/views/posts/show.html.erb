@@ -1,5 +1,6 @@
  <div class="d-flex flex-column align-items-center mt-3">
   <div class="row post-box col-xl-10 col-lg-11 col-xs-12">
+
     <div class="col-lg-8 col-md-7 px-0 d-flex post-show-img">
       <div class="align-self-center">
         <%= render "photos", {post: @post} %>
@@ -20,29 +21,23 @@
           <% end %>
         <% end %>
       </div>
+
       <hr class="mb-0">
+
       <div class="comment-list py-2">
-        <% if @post.content.present? %>
-          <div>
-            <span>
-              <strong><%= @post.user.name %></strong>
-            </span>
-            <span>
-              <%= @post.content %>
-            </span>
-          </div>
-        <% end %>
-        <!-- load comment -->
-        <% 100.times do %>
-          <div>
-            <span>
-              <strong>Someone</strong>
-            </span>
-            <span>
-              lol
-            </span>
-          </div>
-        <% end %>
+      <% if @post.content.present? %>
+        <div>
+          <span>
+            <strong><%= @post.user.name %></strong>
+          </span>
+          <span>
+            <%= @post.content %>
+          </span>
+        </div>
+      <% end %>
+        <div id="comment-post-<%= @post.id.to_s %>">
+          <%= render "comment_list" {post: @post} %>
+        </div>
       </div>
 
       <hr class="mt-0">
@@ -67,12 +62,8 @@
 
       <hr>
 
-      <div class="row actions">
-        <form action="#" class="w-100">
-          <div>
-            <textarea class="form-control comment-input border-0" rows="1" placeholder="Add a comment..."></textarea>
-          </div>
-        </form>
+      <div class="row actions" id="comment-form-post-<%= @post.id.to_s  %>">
+        <%= render "comment_form", {post: @post} %>
       </div>
     </div>
 

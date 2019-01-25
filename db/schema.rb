@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20190125124218) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
   end
 
+ActiveRecord::Schema.define(version: 20190106143256) do
+
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",    limit: 65535
     t.integer  "post_id"
