@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @photos = @post.photos
     @likes = @post.likes.includes(:user)
     @is_liked = @post.is_liked(current_user)
+    @is_bookmarked = @post.is_bookmarked(current_user)
   end
 
   def create
