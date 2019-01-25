@@ -31,16 +31,16 @@
         <span><strong><%= post.user.name %></strong></span>
         <span><%= post.content %></span>
       </div>
-      <div class="light-color post-time">
-        <%= link_to time_ago_in_words(post.created_at).upcase + " AGO", post_path(post), class: "light-color post-time no-text-decoration" %>
+      <div class="light-color post-time" id="comment-post-<%= @post.id.to_s %>">
+        <%= render "comment_list", {post: post} %>
       </div>
+      <%= link_to time_ago_in_words(post.created_at).upcase + " AGO", post_path(post), class: "light-color post-time no-text-decoration" %>
+      </div>
+
       <hr>
-      <div class="row actions">
-        <form action="#" class="w-100">
-          <div>
-            <textarea class="form-control comment-input border-0" rows="1" placeholder="Add a comment..."></textarea>
-          </div>
-        </form>
+
+      <div class="row actions" id="comment-form-post-<%= @post.id.to_s  %>">
+        <%= render "comment_form", {post: post}  %>
       </div>
     </div>
   </div>

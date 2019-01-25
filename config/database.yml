@@ -16,7 +16,7 @@ default: &default
 
 development:
   <<: *default
-  database: db_development
+  database: instagram_development
 
 
 
@@ -25,9 +25,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db_test
+  database: instagram_test
 
 
 production:
   <<: *default
-  database: db_production
+  database: instagram_production
