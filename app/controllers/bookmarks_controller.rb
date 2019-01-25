@@ -24,6 +24,6 @@ class BookmarksController < ApplicationController
 
   private
   def bookmark_params
-    params.required(:bookmark).permit :user_id, :post_id
+    params.permit :user_id, :post_id
   end
 end
