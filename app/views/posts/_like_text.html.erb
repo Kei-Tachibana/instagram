@@ -1,6 +1,6 @@
+<strong>
 <% likes.each.with_index do |like, index| %>
   <!-- Likeの数に応じてユーザ名の表示を変える -->
-  <strong>
   <% if likes.size == 1 %>
     <%= like.user.name %> </strong> likes this
   <% elsif like == likes.last %>
@@ -9,9 +9,10 @@
   <% elsif index>1 %>
     </strong> <%= "and" + (likes.size-index).to_s + "others" %> like this
     <% break %>
-  <% elsif index == ikes.size-2 || index == 1 %>
+  <% elsif index == likes.size-2 || index == 1 %>
     <%= like.user.name %>
   <% else %>
     <%= like.user.name + ", " %>
   <% end %>
 <% end %>
+</strong>
