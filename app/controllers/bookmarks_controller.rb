@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_actino :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
