@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -9,7 +8,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'd76e5a8c50888edae8edb45d313a678056cdea66e0fece17434daeba9447c736cdd7e4335473f6d742c212d740cad39caabe2e720b3a065cadf7cff2efa20ac7'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -287,4 +286,5 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  config.omniauth :twitter, ENV["twitter_app_id"], ENV["twitter_app_secret"]
 end
