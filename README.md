@@ -5,7 +5,7 @@ Instagram copy-site
   Ruby 2.3.1
 
 * Rails version
-  Rails 5.0.7
+  Rails 5.1.6
 
 * DataBase Design
 ---

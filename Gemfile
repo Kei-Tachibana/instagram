@@ -7,11 +7,11 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7'
+gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '0.5.2'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.4.1"
 end
 
 group :development do
@@ -55,6 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'toastr-rails'
+gem 'omniauth', '~> 1.6'
+gem 'omniauth-twitter'
 gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
+gem 'figaro'
 gem 'dropzonejs-rails'
+gem 'will_paginate-bootstrap4'
