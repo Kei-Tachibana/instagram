@@ -12,6 +12,7 @@ body {
   background-color: #fff;
   border-bottom: 1px solid #eee;
   height: 77px;
+  z-index: 1;
 }
 
 .core-sprite {
@@ -420,7 +421,7 @@ footer .nav-item {
     opacity: 0;
   }
 
-  .col-4:hover .post-stat {
+  .post-stat:hover {
     background-color: rgba(0,0,0,.3);
     opacity: 1;
   }
@@ -431,6 +432,7 @@ footer .nav-item {
 }
 
 .search-result-item {
+  z-index: 1;
   padding: 15px;
 }
 

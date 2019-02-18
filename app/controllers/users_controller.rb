@@ -2,8 +2,18 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.search(params[:term])
-    respond_to :js
+    # user names including term
+    term = params[:term]
+    if term.blank? # 入力文字列がnilまたは空である場合
+      return render :partial => "blank"
+    end
+
+    users = User.search(term)
+    if users.blank? # search結果がnilまたは空である場合
+      return render :partial => "no_result"
+    end
+
+    render :partial => "users_result", :collection => users, :as => :user
   end
 
   def show
