@@ -21,8 +21,6 @@
 
 *.cache
 *.log
-*.png
-*.jpg
 *.jpeg
 *.gif
 
