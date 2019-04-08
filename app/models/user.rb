@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[twitter]
+         :omniauthable, omniauth_providers: %i[facebook]
   validates :name, presence: :true, length: {maximum: 15}
 
   def self.search(term)
